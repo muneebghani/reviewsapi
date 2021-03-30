@@ -5,7 +5,6 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var productsRouter = require("./routes/api/products");
-var usersRouter = require("./routes/api/users");
 var indexRouter = require("./routes/index");
 var cors = require("cors");
 
@@ -30,8 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.static("upload"));
 app.use("/", indexRouter);
-app.use("/api/users", usersRouter);
-app.use("/api/products", productsRouter);
+app.use("/api/reviewsrating", productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -51,7 +49,7 @@ app.use(function (err, req, res, next) {
 
 mongoose
   .connect(
-    "mongodb+srv://munib:yGY7cN0jA0iAvOsR@webassignment03.4icws.mongodb.net/ProShop?retryWrites=true&w=majority",
+    "mongodb+srv://munib:yGY7cN0jA0iAvOsR@webassignment03.4icws.mongodb.net/Reviews?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
